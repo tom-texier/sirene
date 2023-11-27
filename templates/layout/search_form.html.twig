@@ -1,3 +1,10 @@
 {{ form_start(searchForm, {attr: {id: 'search-form'}}) }}
-    {{ form_row(searchForm.query) }}
+    <div class="flex gap-2">
+        {{ form_row(searchForm.query) }}
+        <div class="submit_container">
+            <button type="submit" class="px-3 py-1 text-blue-950 bg-white rounded-md font-semibold hover:bg-blue-950 hover:text-white duration-300 ease-out">
+                GO
+            </button>
+        </div>
+    </div>
 {{ form_end(searchForm) }}

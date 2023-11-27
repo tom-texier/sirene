@@ -15,15 +15,14 @@ class SearchType extends AbstractType
                 'required' => true,
                 'label' => "Nom ou n° de SIRET de l'entreprise",
                 'label_attr' => [
-                    'class' => 'block text-sm font-medium leading-6 text-white',
                     'style' => 'display: none;'
                 ],
                 'row_attr' => [
-                    'class' => 'flex'
+                    'class' => 'flex w-full'
                 ],
                 'attr' => [
                     'placeholder' => "Nom ou n° de SIRET de l'entreprise",
-                    'class' => 'flex w-full rounded-md border-0 py-1 px-3'
+                    'class' => 'w-full flex rounded-md px-3 outline-0 focus-visible:outline-0 focus:outline-0'
                 ]
             ])
         ;
