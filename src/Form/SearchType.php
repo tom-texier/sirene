@@ -13,7 +13,7 @@ class SearchType extends AbstractType
         $builder
             ->add('query', TextType::class, [
                 'required' => true,
-                'label' => "Nom ou n° de SIRET de l'entreprise",
+                'label' => "Nom de l'entreprise",
                 'label_attr' => [
                     'style' => 'display: none;'
                 ],
@@ -21,7 +21,7 @@ class SearchType extends AbstractType
                     'class' => 'flex w-full'
                 ],
                 'attr' => [
-                    'placeholder' => "Nom ou n° de SIRET de l'entreprise",
+                    'placeholder' => "Nom de l'entreprise",
                     'class' => 'w-full flex rounded-md px-3 outline-0 focus-visible:outline-0 focus:outline-0'
                 ]
             ])
