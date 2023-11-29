@@ -1,0 +1,8 @@
+<h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">{{ company.name }}</h3>
+<div class="mt-2">
+    <p class="text-sm text-gray-500"><span class="font-bold">SIRET :</span> {{ company.siret }}</p>
+    <p class="text-sm text-gray-500"><span class="font-bold">SIREN :</span> {{ company.siren }}</p>
+    <p class="text-sm text-gray-500"><span class="font-bold">Adresse :</span> {{ company.address }}</p>
+    <p class="text-sm text-gray-500"><span class="font-bold">Catégorie :</span> {{ company.category }}</p>
+    <p class="text-sm text-gray-500"><span class="font-bold">Date de création :</span> {{ company.createdAt|date("d/m/Y") }}</p>
+</div>

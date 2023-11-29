@@ -1,0 +1,16 @@
+{% apply spaceless %}
+    {% for company in companies %}
+        <div class="flex justify-between rounded-md border border-gray-500 px-3 py-1 mb-4">
+            <div class="flex gap-3">
+                <div class="icon flex items-center justify-center">{% include 'icons/company.svg' %}</div>
+                <div class="block">
+                    <h2 class="font-bold">{{ company.name }}</h2>
+                    <p class="text-gray-300 text-s">{{ company.city }} ({{ company.postalCode }})</p>
+                </div>
+            </div>
+            <div class="flex items-end">
+                <a href="#" class="get_details text-sm" data-siret="{{ company.siret }}">Plus de détails</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endapply %}

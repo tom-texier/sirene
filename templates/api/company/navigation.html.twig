@@ -1,0 +1,7 @@
+{% apply spaceless %}
+    {% set pageCount = (total / limit)|round(0, 'ceil') %}
+
+    {% if pageCount > page %}
+        <a href="#" data-next-page="{{ page + 1 }}">Charger plus</a>
+    {% endif %}
+{% endapply %}
