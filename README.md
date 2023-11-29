@@ -38,12 +38,17 @@ composer install
 npm install
 ```
 
-5. Ajouter le token de l'API SIRÈNE dans le fichier `.env` à la racine du projet
+5. Compiler les assets
+```shell
+npm run build
+```
+
+6. Ajouter le token de l'API SIRÈNE dans le fichier `.env` à la racine du projet
 ```dotenv
 SIRENE_TOKEN=XXXXXXXXXXXXXXXXXXXXX
 ```
 
-6. Démarrer l'application
+7. Démarrer l'application
 ```shell
 php -S localhost:8000 -t public
 ```
@@ -52,4 +57,4 @@ ou
 symfony server:start
 ```
 
-7. La console vous indiquera l'URL à suivre pour se rendre sur l'application
+8. La console vous indiquera l'URL à suivre pour se rendre sur l'application
