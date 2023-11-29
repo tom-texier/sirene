@@ -105,7 +105,7 @@ class SireneService
 
     public function checkResponse($response)
     {
-        if(!empty($response['header'])) {
+        if(empty($response['header'])) {
             throw new BadRequestException("Une erreur est survenue");
         }
 
