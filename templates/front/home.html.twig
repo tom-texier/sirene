@@ -1,7 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="mx-auto max-w-7xl px-6 py-5 lg:px-8">
-        <p>Liste des résultats</p>
+    <div class="mx-auto max-w-7xl px-6 py-5 lg:px-8 relative mb-8">
+        <div id="results-container">
+            <div class="results__top flex justify-between">
+                <div class="results__count"></div>
+                <div class="configuration">
+                    <label for="limit" class="mr-1">Nombre de résultats à afficher</label>
+                    <select name="limit" id="limit">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+            </div>
+            <div class="results__list mt-3">Veuillez effectuer une recherche pour afficher des résultats ici.</div>
+            <div class="results__navigation flex justify-center"></div>
+            <div class="results__loader absolute top-0 left-0 w-full h-full p-5 backdrop-blur hidden">
+                {% include 'layout/loader.html.twig' %}
+            </div>
+        </div>
     </div>
+    {% include 'layout/modal.html.twig' %}
 {% endblock %}
