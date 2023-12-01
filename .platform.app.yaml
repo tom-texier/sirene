@@ -10,6 +10,7 @@ name: aliceiw
 type: 'php:7.4'
 build:
   flavor: composer
+  flavor: npm
 
 variables:
   env:
@@ -33,7 +34,6 @@ disk: 2048
 hooks:
     build: |
       set -e
-      npm install
       npm run build
       bin/console assets:install --no-debug
       bin/console cache:clear
