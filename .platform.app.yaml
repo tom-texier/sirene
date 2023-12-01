@@ -8,6 +8,13 @@ name: aliceiw
 # (https://docs.platform.sh/languages/php.html#supported-versions)
 # to find the supported versions for the 'php' type.
 type: 'php:7.4'
+build:
+  flavor: composer
+
+variables:
+  env:
+    APP_ENV: 'prod'
+    APP_DEBUG: 0
 
 # The following block defines a single writable directory, 'web/uploads'
 # The 'source' specifies where the writable mount is. The 'local' source
@@ -15,9 +22,10 @@ type: 'php:7.4'
 # application container. The 'source_path' specifies the subdirectory
 # from within the source that the mount should point at. 
 mounts:
-  'web/uploads':
-    source: local
-    source_path: uploads
+  "/var/cache": "shared:files/cache"
+  "/var/log": "shared:files/log"
+  "/var/sessions": "shared:files/sessions"
+
 
 # The size of the persistent disk of the application (in MB).
 disk: 2048
@@ -25,11 +33,15 @@ disk: 2048
 hooks:
     build: |
       set -e
+      bin/console assets:install --no-debug
+      bin/console cache:clear
     deploy: |
       set -e
+      bin/console assets:install --symlink --relative public
+      bin/console cache:clear
 
 web:
   locations: 
     '/': 
-      root: "web"
-      passthru: "/public/index.php"
+      root: "public"
+      passthru: "/index.php"
