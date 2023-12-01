@@ -9,14 +9,8 @@ name: aliceiw
 # to find the supported versions for the 'php' type.
 type: 'php:7.4'
 
-dependencies:
-  php:
-    composer/composer: '^2'
-  nodejs:
-    sharp: "*"
-
 build:
-  flavor: none
+  flavor: composer
 
 variables:
   env:
@@ -39,16 +33,12 @@ disk: 2048
 
 hooks:
     build: |
-      set -e
-      npm install
-      npm run build
-      composer install
-      bin/console assets:install --no-debug
-      bin/console cache:clear
+      set -x -e
+      curl -s https://get.symfony.com/cloud/configurator | bash
+      symfony-build
     deploy: |
-      set -e
-      bin/console assets:install --symlink --relative public
-      bin/console cache:clear
+      set -x -e
+      symfony-deploy
 
 web:
   locations: 
