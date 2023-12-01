@@ -5,4 +5,4 @@
 
 "https://{default}/":
     type: redirect
-    to: "https://www.{default}/"
+    to: "http://www.{default}/"
