@@ -33,12 +33,12 @@ disk: 2048
 hooks:
     build: |
       set -e
+      npm install
       npm run build
       bin/console assets:install --no-debug
       bin/console cache:clear
     deploy: |
       set -e
-      npm run build
       bin/console assets:install --symlink --relative public
       bin/console cache:clear
 
