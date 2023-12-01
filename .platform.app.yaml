@@ -9,8 +9,7 @@ name: aliceiw
 # to find the supported versions for the 'php' type.
 type: 'php:7.4'
 build:
-  flavor: composer
-  flavor: npm
+  flavor: none
 
 variables:
   env:
@@ -34,6 +33,8 @@ disk: 2048
 hooks:
     build: |
       set -e
+      composer install
+      npm install
       npm run build
       bin/console assets:install --no-debug
       bin/console cache:clear
